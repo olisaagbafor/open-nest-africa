@@ -24,10 +24,10 @@ const requestPasswordReset = async (email) => {
 
   console.log(resetUrl);
 
-  // const emailSent = await sendPasswordResetEmail(email, resetToken);
-  // if (!emailSent) {
-  //   throw new Error("Failed to send reset email");
-  // }
+  const emailSent = await sendPasswordResetEmail(email, resetToken);
+  if (!emailSent) {
+    throw new Error(`Email Failed: ${resetUrl} `);
+  }
 
   return { resetUrl };
 };
