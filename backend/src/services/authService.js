@@ -22,6 +22,8 @@ const requestPasswordReset = async (email) => {
 
   const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
+  console.log(resetUrl);
+
   const emailSent = await sendPasswordResetEmail(email, resetToken);
   if (!emailSent) {
     throw new Error("Failed to send reset email");
